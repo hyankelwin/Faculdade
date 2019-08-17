@@ -1,0 +1,28 @@
+page-minha-conta {
+    .toolbar-background.toolbar-background-md{
+        background: #344f8a;
+    }
+    .toolbar-title.toolbar-title-md{
+        color: white;
+        text-align: center;
+    }
+    .icon-user{
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+    }
+    .avatar-img{
+        display: flex;
+        justify-content: center;
+        background: #344f8a;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        margin: auto;
+    }
+    .initial{
+        margin: auto;
+        font-size: 30px;
+        color: #ffffff;
+    }
+}

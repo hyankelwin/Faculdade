@@ -1,0 +1,7 @@
+{
+  "name": "academic-calendar",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

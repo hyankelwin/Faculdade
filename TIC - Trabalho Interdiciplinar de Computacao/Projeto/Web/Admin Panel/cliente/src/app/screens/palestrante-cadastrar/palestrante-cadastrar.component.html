@@ -1,0 +1,18 @@
+<mat-card class="example-card">
+  <mat-icon class="back" (click)="back()">arrow_back</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nome Palestrante" [(ngModel)]="info.nome" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Empresa/instituição" [(ngModel)]="info.empresa" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Descrição" [(ngModel)]="info.descricao_curriculo" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Url Foto" [(ngModel)]="info.foto" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <button mat-fab (click)="criarPalestrante(info)">
+    <mat-icon>done</mat-icon>
+  </button>
+</mat-card>

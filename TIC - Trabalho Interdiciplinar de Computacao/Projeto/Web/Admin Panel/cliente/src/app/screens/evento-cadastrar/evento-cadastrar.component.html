@@ -1,0 +1,63 @@
+<!-- <div class="example-card">
+  <mat-list *ngFor="let ev of eventos">
+    <mat-list-item >
+      <span>Evento:{{ev.evento}}</span>
+      <span>Local:{{ev.local}}</span> 
+      <span>Data:{{ev.data  | date:'MM/dd/yyyy'}}</span>    
+      <span>Horario:{{ev.horario}}</span>  
+      <mat-icon style="position: absolute;right: 50px;" (click)="editItem(ev)">edit</mat-icon>
+      <mat-icon style="position: absolute;right: 10px;" (click)="deleteItem(ev._id)">delete</mat-icon> 
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>
+<button mat-fab (click)="criarEvento()"><mat-icon>add</mat-icon></button> -->
+
+
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Evento </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nome_tipo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome_tipo}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nome_local">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Local </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome_local}} </td>
+    </ng-container>
+    <ng-container matColumnDef="data_inicio">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+      <td mat-cell *matCellDef="let element"> {{element.data_inicio | date:"dd/MM/yy" }} </td>
+    </ng-container>
+    <ng-container matColumnDef="data_fim">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Horario </th>
+      <td mat-cell *matCellDef="let element"> {{element.data_fim | date:"HH:mm"}} </td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" (click)="editItem(element)">
+          <mat-icon>edit</mat-icon>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" (click)="deleteItem(element.cod_evento)">
+          <mat-icon>delete</mat-icon>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<button mat-fab (click)="criarEvento()">
+  <mat-icon>
+    add
+  </mat-icon>
+</button>
+
+
+
+
+
+

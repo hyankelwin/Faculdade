@@ -1,0 +1,340 @@
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 185px;
+    padding: 11px 1px 17px 11px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  #mostraAluno {
+    overflow: scroll;
+  }
+
+  .cardAlunos {
+    height: 265px;
+    position: relative;
+    left: 218px;
+    bottom: 292px;
+    width: 500px;
+  }
+
+  body {
+    margin: auto;
+    font-family: sans-serif;
+  }
+
+  .cabecalho {
+    background: #344f8a;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardAluno {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 815px;
+    padding: 30px 25px 18px 16px;
+    height: 210px;
+    background: white;
+    overflow: hidden;
+    position: relative;
+    top: 116px;
+  }
+
+  .cardAlunoMostra {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 815px;
+    padding: 0px 25px 18px 16px;
+    min-height: 200px;
+    background: white;
+    overflow: hidden;
+    position: relative;
+    top: 155px;
+    margin-bottom: 25px;
+  }
+
+  .containerAlunoMostra {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 63px;
+  }
+
+  /* INPUT */
+
+  /* ANIMATIONS ================ */
+
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: #046198;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: #046198;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  @keyframes inputHighlighter {
+    from {
+      background: #046198;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  input:focus~.highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+  }
+
+  /* HIGHLIGHTER ================================== */
+
+  .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  input {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 250px;
+    border: none;
+    border-bottom: 1px solid #757575;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  /* LABEL ======================================= */
+
+  label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  /* active state */
+
+  input:focus~label,
+  input:valid~label {
+    top: -20px;
+    font-size: 14px;
+    color: #046198;
+  }
+
+  .bar {
+    position: relative;
+    display: block;
+    width: 250px;
+  }
+
+  .bar:before,
+  .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #046198;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+
+  .bar:before {
+    left: 50%;
+  }
+
+  .bar:after {
+    right: 50%;
+  }
+
+  .group {
+    position: relative;
+    margin-bottom: 45px;
+    font-family: sans-serif;
+    padding: 0px 0px 0px 7px;
+  }
+
+  /* active state */
+
+  input:focus~.bar:before,
+  input:focus~.bar:after {
+    width: 50%;
+  }
+
+  /* BUTTON */
+
+  .btn {
+    position: relative;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    border-width: 0;
+    outline: none;
+    border-radius: 1px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+    background-color: #4CAF50;
+    color: #ecf0f1;
+    transition: background-color .3s;
+    margin: auto;
+    margin-right: 0px;
+  }
+
+  .btn:hover,
+  .btn:focus {
+    background-color: #81C784;
+  }
+
+  .btn>* {
+    position: relative;
+  }
+
+  .btn span {
+    display: block;
+    padding: 10px 29px;
+    font-size: 15px
+  }
+
+  .btn:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    width: 0;
+    padding-top: 0;
+    border-radius: 100%;
+    background-color: rgba(236, 240, 241, .3);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .btn:active:before {
+    width: 120%;
+    padding-top: 120%;
+    transition: width .2s ease-out, padding-top .2s ease-out;
+  }
+
+  /*----DIV MOSTRA ALUNO -----*/
+
+  .cabecalhoMostraAluno {
+    display: flex;
+    height: 123px;
+    margin-bottom: 10px;
+  }
+
+  .pesquisa {
+    margin: auto;
+    margin-right: 0px;
+    margin-top: 21px;
+  }
+
+  .borda {
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    width: 97%;
+    margin-top: 117px;
+    margin-left: 7px;
+  }
+
+  .containerAluno {
+    transition: 0.3s;
+    width: 792px;
+    padding: 7px 26px 18px 17px;
+    height: 126px;
+    background: transparent;
+    overflow: hidden;
+    position: relative;
+    top: 4px;
+    margin-left: -5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .nomeCodigo {
+    display: flex;
+    color: #344f8a;
+  }
+
+  th,
+  td {
+    padding: 5px;
+    text-align: left;
+    color: #999;
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+
+  .divisao {
+    font-size: 20px;
+    margin-top: 17px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .search {
+    height: 25px;
+    margin-top: 28px;
+    cursor: pointer;
+  }
+
+  .containerLogoFacef {
+    position: absolute;
+    left: 20px;
+    margin-top: 15px;
+  }
+
+  .consulta {
+    font-size: 20px;
+    color: white;
+    position: relative;
+    bottom: 15px;
+  }
+
+  .bordaLeft {
+    color: white;
+    position: relative;
+    bottom: 15px;
+    font-size: 32px;
+    margin-left: 7px;
+    margin-right: 7px;
+  }

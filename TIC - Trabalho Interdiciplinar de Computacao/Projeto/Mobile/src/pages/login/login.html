@@ -1,0 +1,25 @@
+<ion-content class="background">
+    <img src="assets/imgs/unifacef.png" style="width: 100%; height: auto;padding: 20px 40px 0px 40px;">
+  <ion-card>
+    <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4></ion-col>
+            <ion-col col-4 style="margin-left: auto; margin-right: auto; display: block">
+              <img src="assets/imgs/Uni_FACEF_MUNICIPAL.png" style="width: 100%; height: auto">
+            </ion-col>
+            <ion-col col-4></ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item>
+          <ion-label floating style="color: #000">Codigo</ion-label>
+          <ion-input type="text" [(ngModel)]="info.usuario"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating style="color: #000">Senha</ion-label>
+          <ion-input type="password" [(ngModel)]="info.senha"></ion-input>
+        </ion-item>
+        <button ion-button block class="buttonLogin" (click)="entrar(info)">Entrar</button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

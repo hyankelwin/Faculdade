@@ -1,0 +1,26 @@
+<mat-card class="example-card">
+  <button mat-fab style="position: absolute; top: 20px" (click)="criarLocal(info)">
+    <mat-icon>done</mat-icon>
+  </button>
+  <mat-icon class="back" (click)="back()">arrow_back</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nome local" [(ngModel)]="info.nome" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Rua" [(ngModel)]="info.rua" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Numero" [(ngModel)]="info.numero" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Complemento" [(ngModel)]="info.complemento" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Bairro" [(ngModel)]="info.bairro" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="info.cidade" placeholder="Cidades">
+      <mat-option [value]="item.cod_cidade" *ngFor="let item of info.cityes">{{item.nome}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-card>

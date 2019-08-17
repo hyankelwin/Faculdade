@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Detalhes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <img src="https://udemy-images.udemy.com/course/750x422/756150_c033_2.jpg"/>
+  </div>
+  <div>
+      <ion-item>
+        <ion-label floating>Nome do evento</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="info.nome"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Tema</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="info.tema"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Data inicio</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="info.dataInicio"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Data final</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="info.dataFim"></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input disabled type="text" [(ngModel)]="info.descricao"></ion-input>
+      </ion-item> -->
+      <ion-item>
+        <ion-textarea disabled placeholder="Descrição" [(ngModel)]="info.descricao"></ion-textarea>
+      </ion-item>
+  </div>
+  <button ion-button block class="buttonLogin" (click)="notification()">Lembrar-me</button>
+</ion-content>

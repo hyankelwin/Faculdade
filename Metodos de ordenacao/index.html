@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Metodos de Ordenação</title>
+	<title></title>
+	<script type="text/javascript" src="js.js"></script>
+	<script src="http://chancejs.com/chance.min.js"></script>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<div class="cabecalho">
+		<h3 onclick="funcaoCod('insercaoDireta')">Inserção Direta</h3>
+		<h3 onclick="funcaoCod('bubleSort')">Buble Sort</h3>
+		<h3 onclick="funcaoCod('selecaoDireta')">Selecão Direta</h3>
+		<h3 onclick="funcaoCod('heapSort')">Heap Sort</h3>
+		<h3 onclick="funcaoCod('shellSort')">Shell Sort</h3>
+		<h3 onclick="funcaoCod('quickSort')">Quick Sort</h3>
+	</div>
+	<div class="cardAluno">
+		<div class="metodo">
+			<p style="text-transform: capitalize;" id="metodoHtml"></p>
+		</div>
+		<div style="display: flex; text-align: center">
+			<div class="containerSelects" onclick="gerarVetor( metodo + 'Aleatorio')"><span>Aleatorio</span></div>
+			<div class="containerSelects" onclick="gerarVetor( metodo + 'Crescente')"><span>Crescente</span></div>
+			<div class="containerSelects" onclick="gerarVetor( metodo + 'Decrescente')"><span>Decresente</span></div>
+		</div>
+		<div>
+			<div class="numbers" onclick="value(100)"><span>100</span></div>
+			<div class="numbers" onclick="value(1000)"><span>1000</span></div>
+			<div class="numbers" onclick="value(10000)"><span>10000</span></div>
+			<div class="numbers" onclick="value(100000)"><span>100000</span></div>
+			<div id="divInfo" class="infos">
+				<div id="info"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

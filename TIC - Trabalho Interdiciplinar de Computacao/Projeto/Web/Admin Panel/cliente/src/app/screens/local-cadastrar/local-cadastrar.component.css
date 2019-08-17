@@ -1,0 +1,19 @@
+.example-card {
+    max-width: 600px;
+    display: grid;
+  }
+  .example-chip-list {
+    width: 100%;
+  }
+  button{
+    position: absolute;
+    bottom: -57px;
+    right: -80px;
+    background: #3f51b5!important;
+    /* font-size: 25px; */
+}
+.back{
+  margin: auto;
+  margin-left: 0px;
+  cursor: pointer;
+}

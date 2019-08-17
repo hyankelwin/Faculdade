@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Minha conta</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-avatar item-start class="avatar-img">
+    <!-- <img class="icon-user" src="https://f.i.uol.com.br/fotografia/2018/10/11/15392892275bbfb08bd13e3_1539289227_3x2_rt.jpg"> -->
+    <span class="initial">{{info.nome.substr(0, 1)}}</span>
+  </ion-avatar>
+  <form style="padding-right: 10px;">
+    <ion-item>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="info.nome" name="nome" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Codigo</ion-label>
+      <ion-input type="text" [(ngModel)]="info.codigo" name="codigo" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="info.email" name="email" disabled></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="info.cidade" name="cidade" disabled></ion-input>
+    </ion-item>
+    <div style="display: flex">
+      <ion-item>
+        <ion-label floating>Semestre</ion-label>
+        <ion-input type="text" [(ngModel)]="info.semestre" name="semestre" disabled></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Conclusão</ion-label>
+        <ion-input type="text" [(ngModel)]="info.dt_conclusao" name="dt_conclusao" disabled></ion-input>
+      </ion-item>
+    </div>
+    <ion-item>
+      <ion-label floating>Nome curso</ion-label>
+      <ion-input type="text" [(ngModel)]="info.nome_curso" name="nome_curso" disabled></ion-input>
+    </ion-item>
+  </form>
+</ion-content>

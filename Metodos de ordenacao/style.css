@@ -1,0 +1,103 @@
+.cabecalho {
+    background: #344f8a;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+body{
+    margin: auto;
+    background: #e0d8d84f;
+}
+
+h3{
+    font-family: sans-serif!important;
+    color: white!important;
+    cursor: pointer;
+    margin: auto;
+}
+
+.cardAluno {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 3px;
+    width: 815px;
+    padding: 0px 0px 21px 0px;
+    height: 263px;
+    background: white;
+    overflow: hidden;
+    position: relative;
+    top: 116px;
+    margin: auto;
+}
+
+.containerSelects{
+    width: 100%;
+    background: #344f8a;
+    height: 50px;
+    border-left: 1px solid;
+    color: white;
+    cursor: pointer;
+}
+
+span{
+    position: relative;
+    top: 15px;
+    font-family: sans-serif;
+}
+
+.numbers{
+    width: 10%;
+    background: #344f8a;
+    height: 45px;
+    border-left: 1px solid;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    border-bottom: 1px solid;
+}
+
+.infos{
+    position: absolute;
+    top: 165px;
+    left: 318px;
+    background: #1bbd09;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    color: white;
+    display: none;
+}
+
+.load{
+    position: absolute;
+    top: 165px;
+    left: 318px;
+    background: #1bbd09;
+    width: 180px;
+    height: 60px;
+    text-align: center;
+    color: black;
+}
+
+.info-gerado{
+    position: absolute;
+    top: 130px;
+    left: 200px;
+}
+
+.metodo{
+    display: flex;
+    text-align: center;
+    height: 50px;
+    color: white;
+    background: #344f8a;
+    justify-content: center;
+    font-family: sans-serif;
+    margin-left: 1px;
+    border-bottom: 1px solid;
+}
+#info{
+    margin-top: 20px
+}

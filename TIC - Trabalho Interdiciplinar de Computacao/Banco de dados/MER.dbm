@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.0" last-position="427,0" last-zoom="0.8"
+	 default-owner="postgres">
+<database name="new_database">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="Institucional" rect-visible="true" fill-color="#e1e1e1">
+	<role name="postgres"/>
+</schema>
+
+<table name="tb_aluno">
+	<schema name="&quot;Institucional&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de alunos da isntituição]]></comment>
+	<position x="140" y="40"/>
+	<column name="cod_aluno" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[campo de codigo do aluno, sendo campo identificador da tabela]]></comment>
+	</column>
+	<column name="cod_curso" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[codigo do curso no qual o aluno está matriculado]]></comment>
+	</column>
+	<column name="senha" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[senha para acesso do aluno]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[campo para nome completo do aluno]]></comment>
+	</column>
+	<column name="ativo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_aluno" type="pk-constr" table="&quot;Institucional&quot;.tb_aluno">
+		<columns names="cod_aluno" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_curso">
+	<schema name="&quot;Institucional&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de cursos da instituição]]></comment>
+	<position x="560" y="40"/>
+	<column name="cod_curso" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[campo de codigo de curso, atributo identificador da tabela]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[nome do curso]]></comment>
+	</column>
+	<column name="descricao">
+		<type name="text" length="0"/>
+		<comment><![CDATA[descricao do curso]]></comment>
+	</column>
+	<column name="cod_departamento" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[cod do departamento ao qual o curso pertence ]]></comment>
+	</column>
+	<column name="ativo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_curso" type="pk-constr" table="&quot;Institucional&quot;.tb_curso">
+		<columns names="cod_curso" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_departamento">
+	<schema name="&quot;Institucional&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de departamentos aos quais os cursos da instituição estão inseridos]]></comment>
+	<position x="60" y="300"/>
+	<column name="cod_departamento" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[codigo do departamento, atributo identificador da tabela]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[nome do departamento]]></comment>
+	</column>
+	<constraint name="pk_departamento" type="pk-constr" table="&quot;Institucional&quot;.tb_departamento">
+		<columns names="cod_departamento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_docente">
+	<schema name="&quot;Institucional&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de docentes contribuíntes da isntituição]]></comment>
+	<position x="500" y="300"/>
+	<column name="cod_docente" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[codigo identificador do docente]]></comment>
+	</column>
+	<column name="nome_usuario" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[nome de usuario do docente]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[nome do docente]]></comment>
+	</column>
+	<column name="permissao" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[campo que indica se docente possui permissao de administrador de eventos]]></comment>
+	</column>
+	<column name="senha" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[campo de senha de acesso de login do docente]]></comment>
+	</column>
+	<column name="e-mail" not-null="true">
+		<type name="varchar" length="60"/>
+	</column>
+	<column name="ativo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_docente" type="pk-constr" table="&quot;Institucional&quot;.tb_docente">
+		<columns names="cod_docente" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="unq_nome_usuario" type="uq-constr" table="&quot;Institucional&quot;.tb_docente">
+		<columns names="nome_usuario" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<schema name="Eventos" rect-visible="true" fill-color="#55ff7f">
+	<role name="postgres"/>
+</schema>
+
+<table name="tb_palestrante">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de palestrantes que farão parte de eventos]]></comment>
+	<position x="1600" y="20"/>
+	<column name="cod_palestrante" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[atributo identificador da tabela]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[campo para nome do palestrante]]></comment>
+	</column>
+	<column name="descricao_curriculo">
+		<type name="text" length="0"/>
+		<comment><![CDATA[campo para adição de um mini curriculo do palestrante]]></comment>
+	</column>
+	<column name="foto">
+		<type name="varchar" length="500"/>
+		<comment><![CDATA[campo para adição de foto do palestrante]]></comment>
+	</column>
+	<column name="ativo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_palestrante" type="pk-constr" table="&quot;Eventos&quot;.tb_palestrante">
+		<columns names="cod_palestrante" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_tipo_evento">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de dominio para tipos de evento]]></comment>
+	<position x="1780" y="460"/>
+	<column name="cod_tipo_evento" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[atributo identificador da tabela]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[nome do tipo de evento]]></comment>
+	</column>
+	<constraint name="pk_tipo_evento" type="pk-constr" table="&quot;Eventos&quot;.tb_tipo_evento">
+		<columns names="cod_tipo_evento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_local_evento">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<position x="1340" y="580"/>
+	<column name="cod_local" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[atributo identificador da tabela]]></comment>
+	</column>
+	<column name="cod_cidade" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[nome do local]]></comment>
+	</column>
+	<column name="rua">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[noem da rua do local]]></comment>
+	</column>
+	<column name="numero">
+		<type name="varchar" length="10"/>
+		<comment><![CDATA[numero do local no endereço indicado]]></comment>
+	</column>
+	<column name="bairro">
+		<type name="varchar" length="30"/>
+		<comment><![CDATA[bairro do endereço do local]]></comment>
+	</column>
+	<column name="complemento">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="pk_local" type="pk-constr" table="&quot;Eventos&quot;.tb_local_evento">
+		<columns names="cod_local" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_estado">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de estados]]></comment>
+	<position x="1960" y="840"/>
+	<column name="sigla_estado" not-null="true">
+		<type name="char" length="2"/>
+	</column>
+	<constraint name="pk_estado" type="pk-constr" table="&quot;Eventos&quot;.tb_estado">
+		<columns names="sigla_estado" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_cidade">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de cidades]]></comment>
+	<position x="1620" y="800"/>
+	<column name="cod_cidade" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[atibuto identificador]]></comment>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[nome da cidade]]></comment>
+	</column>
+	<column name="sigla_estado" not-null="true">
+		<type name="char" length="2"/>
+	</column>
+	<constraint name="pk_cidade" type="pk-constr" table="&quot;Eventos&quot;.tb_cidade">
+		<columns names="cod_cidade" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_docente_departamento">
+	<schema name="&quot;Institucional&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabela de docentes e seus departamentos]]></comment>
+	<position x="180" y="540"/>
+	<column name="cod_docente" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[codigo do docente]]></comment>
+	</column>
+	<column name="cod_departamento" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[codigo do departamento]]></comment>
+	</column>
+	<constraint name="pk_docente_departamento" type="pk-constr" table="&quot;Institucional&quot;.tb_docente_departamento">
+		<columns names="cod_docente,cod_departamento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_evento_palestrante">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<position x="1080" y="80"/>
+	<column name="cod_evento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cod_palestrante" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="pk_evento_palestrante" type="pk-constr" table="&quot;Eventos&quot;.tb_evento_palestrante">
+		<columns names="cod_evento,cod_palestrante" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_evento">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<comment><![CDATA[tabelas dos eventos da instituição]]></comment>
+	<position x="1300" y="260"/>
+	<column name="cod_evento" not-null="true">
+		<type name="serial" length="0"/>
+		<comment><![CDATA[atributo identificador da tabela]]></comment>
+	</column>
+	<column name="cod_docente_cadastro" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cod_tipo_evento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cod_local" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nome" not-null="true">
+		<type name="varchar" length="100"/>
+		<comment><![CDATA[nome do evento]]></comment>
+	</column>
+	<column name="tema">
+		<type name="varchar" length="60"/>
+		<comment><![CDATA[campo para adição do tema do evento]]></comment>
+	</column>
+	<column name="descricao">
+		<type name="text" length="0"/>
+	</column>
+	<column name="data_inicio" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[campo de data incio do evento]]></comment>
+	</column>
+	<column name="data_fim" not-null="true">
+		<type name="timestamp with time zone" length="0" with-timezone="true"/>
+		<comment><![CDATA[data de fim do evento]]></comment>
+	</column>
+	<column name="ativo" not-null="true">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_evento" type="pk-constr" table="&quot;Eventos&quot;.tb_evento">
+		<columns names="cod_evento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="tb_evento_curso">
+	<schema name="&quot;Eventos&quot;"/>
+	<role name="postgres"/>
+	<position x="940" y="440"/>
+	<column name="cod_curso" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="cod_evento" not-null="true">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="pk_evento_curso" type="pk-constr" table="&quot;Eventos&quot;.tb_evento_curso">
+		<columns names="cod_curso,cod_evento" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_aluno_curso" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_curso" table="&quot;Institucional&quot;.tb_aluno">
+	<columns names="cod_curso" ref-type="src-columns"/>
+	<columns names="cod_curso" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_curso_departamento" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_departamento" table="&quot;Institucional&quot;.tb_curso">
+	<columns names="cod_departamento" ref-type="src-columns"/>
+	<columns names="cod_departamento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_cidade" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_cidade" table="&quot;Eventos&quot;.tb_local_evento">
+	<columns names="cod_cidade" ref-type="src-columns"/>
+	<columns names="cod_cidade" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_cidade_estado" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_estado" table="&quot;Eventos&quot;.tb_cidade">
+	<columns names="sigla_estado" ref-type="src-columns"/>
+	<columns names="sigla_estado" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_docente_departamento_docente" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_docente" table="&quot;Institucional&quot;.tb_docente_departamento">
+	<columns names="cod_docente" ref-type="src-columns"/>
+	<columns names="cod_docente" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_docente_departamento_departamento" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_departamento" table="&quot;Institucional&quot;.tb_docente_departamento">
+	<columns names="cod_departamento" ref-type="src-columns"/>
+	<columns names="cod_departamento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_palestrante_evento" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_evento" table="&quot;Eventos&quot;.tb_evento_palestrante">
+	<columns names="cod_evento" ref-type="src-columns"/>
+	<columns names="cod_evento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_palestrante_palestrante" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_palestrante" table="&quot;Eventos&quot;.tb_evento_palestrante">
+	<columns names="cod_palestrante" ref-type="src-columns"/>
+	<columns names="cod_palestrante" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_docente" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_docente" table="&quot;Eventos&quot;.tb_evento">
+	<columns names="cod_docente_cadastro" ref-type="src-columns"/>
+	<columns names="cod_docente" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_tipo_evento" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_tipo_evento" table="&quot;Eventos&quot;.tb_evento">
+	<columns names="cod_tipo_evento" ref-type="src-columns"/>
+	<columns names="cod_tipo_evento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_local" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_local_evento" table="&quot;Eventos&quot;.tb_evento">
+	<columns names="cod_local" ref-type="src-columns"/>
+	<columns names="cod_local" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_curso_evento" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Eventos&quot;.tb_evento" table="&quot;Eventos&quot;.tb_evento_curso">
+	<columns names="cod_evento" ref-type="src-columns"/>
+	<columns names="cod_evento" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_evento_curso_curso" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="&quot;Institucional&quot;.tb_curso" table="&quot;Eventos&quot;.tb_evento_curso">
+	<columns names="cod_curso" ref-type="src-columns"/>
+	<columns names="cod_curso" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_tb_aluno_tb_curso" type="relfk"
+	 src-table="&quot;Institucional&quot;.tb_aluno"
+	 dst-table="&quot;Institucional&quot;.tb_curso"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_curso_tb_departamento" type="relfk"
+	 src-table="&quot;Institucional&quot;.tb_curso"
+	 dst-table="&quot;Institucional&quot;.tb_departamento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_local_evento_tb_cidade" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_local_evento"
+	 dst-table="&quot;Eventos&quot;.tb_cidade"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_cidade_tb_estado" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_cidade"
+	 dst-table="&quot;Eventos&quot;.tb_estado"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_docente_departamento_tb_docente" type="relfk"
+	 src-table="&quot;Institucional&quot;.tb_docente_departamento"
+	 dst-table="&quot;Institucional&quot;.tb_docente"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_docente_departamento_tb_departamento" type="relfk"
+	 src-table="&quot;Institucional&quot;.tb_docente_departamento"
+	 dst-table="&quot;Institucional&quot;.tb_departamento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_palestrante_tb_evento" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento_palestrante"
+	 dst-table="&quot;Eventos&quot;.tb_evento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_palestrante_tb_palestrante" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento_palestrante"
+	 dst-table="&quot;Eventos&quot;.tb_palestrante"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_tb_docente" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento"
+	 dst-table="&quot;Institucional&quot;.tb_docente"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_tb_tipo_evento" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento"
+	 dst-table="&quot;Eventos&quot;.tb_tipo_evento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_tb_local_evento" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento"
+	 dst-table="&quot;Eventos&quot;.tb_local_evento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_curso_tb_evento" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento_curso"
+	 dst-table="&quot;Eventos&quot;.tb_evento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tb_evento_curso_tb_curso" type="relfk"
+	 src-table="&quot;Eventos&quot;.tb_evento_curso"
+	 dst-table="&quot;Institucional&quot;.tb_curso"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

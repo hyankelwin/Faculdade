@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <title>Consulta Notas</title>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="js.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <div class="cabecalho">
+    <div class="containerLogoFacef">
+      <img src="imgs/logo-branco.png" style="width: 200px;" />
+      <span class="bordaLeft">|</span>
+      <span class="consulta">Consulta Notas</span>
+    </div>
+    <div class="cardAluno">
+      <div style="display: flex;">
+        <div class="group">
+          <input type="text" id="codigo" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Codigo</label>
+        </div>
+        <div class="group">
+          <input type="text" id="nome" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Nome</label>
+        </div>
+        <div class="group">
+          <input type="text" id="curso" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Disciplina</label>
+        </div>
+      </div>
+      <div style="display: flex;">
+        <div class="group">
+          <input type="number" required id="notaA">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>1ª Nota</label>
+        </div>
+        <div class="group">
+          <input type="number" required id="notaB">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>2ª Nota</label>
+        </div>
+        <div class="group">
+          <input type="number" required id="frequencia">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Frequência</label>
+        </div>
+      </div>
+      <button class="btn" onclick="criarAluno()" type="button">
+        <span>Inserir</span>
+      </button>
+    </div>
+  </div>
+  <div class="containerAlunoMostra">
+    <div class="cardAlunoMostra" id="cardAlunoId">
+      <div class="cabecalhoMostraAluno">
+        <h4 style="font-family: sans-serif;margin-top: 40px;color: #999;">Alunos Cadastrados</h4>
+        <div class="group pesquisa">
+          <input type="text" id="textoPesquisa" onkeyup="verificarPesquisa(event)" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Pesquisar(codigo)</label>
+        </div>
+        <img onclick="pesquisar()" class="search" src="imgs/musica-searcher.png" />
+        <label class="borda"></label>
+      </div>
+      <div id="showCard"></div>
+    </div>
+  </div>
+</body>
+
+</html>

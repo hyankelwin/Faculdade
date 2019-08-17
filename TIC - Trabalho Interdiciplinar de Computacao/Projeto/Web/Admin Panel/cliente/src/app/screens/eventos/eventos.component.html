@@ -1,0 +1,146 @@
+<!-- <mat-card class="example-card">
+  <mat-icon class="back" (click)="back()">arrow_back</mat-icon>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nome do evento" [(ngModel)]="info.evento" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select [(ngModel)]="info.local" placeholder="Local">
+      <mat-option value="Auditório">Auditório</mat-option>
+      <mat-option value="Salão Andar 2">Salão Andar 2</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+      <input matInput [matDatepicker]="data" [(ngModel)]="info.data" placeholder="Data">
+      <mat-datepicker-toggle matSuffix [for]="data">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-datepicker #data></mat-datepicker>
+    </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Horário" type="time" [(ngModel)]="info.horario" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Descrição" [(ngModel)]="info.descricao" [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Tema" [(ngModel)]="info.tema" [ngModelOptions]="{standalone: true}">
+</mat-form-field>
+<mat-form-field>
+    <mat-select [(ngModel)]="info.tipoEvento" placeholder="Tipo do evento">
+      <mat-option value="Acadêmico">Acadêmico</mat-option>
+      <mat-option value="Cursos">Cursos</mat-option>
+      <mat-option value="Extra curriculares">Extra curriculares</mat-option>
+    </mat-select>
+  </mat-form-field>
+<mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList>
+      <mat-chip
+        *ngFor="let fruit of curso"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(fruit)">
+        {{fruit}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Curso direcionado"
+        #fruitInput
+        [formControl]="fruitCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+        {{fruit}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+<button mat-fab (click)="criarEvento(info)"><mat-icon>done</mat-icon></button>
+</mat-card> -->
+
+
+<mat-card class="example-card">
+  <button mat-fab style="position:absolute; top: 20px" (click)="criarEvento(info)"><mat-icon>done</mat-icon></button>  
+  <mat-icon class="back" (click)="back()">arrow_back</mat-icon>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Nome do evento" [(ngModel)]="info.evento" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Tema" [(ngModel)]="info.tema" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select [(ngModel)]="info.tipoEvento" placeholder="Tipo">
+            <mat-option *ngFor="let item of tipoEventos" value="{{item.cod_tipo_evento}}">{{item.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-chip-list">
+            <mat-chip-list #chipList>
+              <mat-chip
+                *ngFor="let fruit of info.cursosSelecionados"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(fruit)">
+                {{fruit.nome}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                placeholder="Curso direcionado"
+                #fruitInput
+                [formControl]="fruitCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let fruit of filteredFruits | async" value="{{fruit.cod_curso}}">
+                {{fruit.nome}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <b style="text-align: start">Informações de localidade e horário</b>
+        <mat-form-field>
+          <mat-select [(ngModel)]="info.local" placeholder="Local">
+            <mat-option *ngFor="let item of locais" value="{{item.cod_local}}">{{item.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select [(ngModel)]="info.palestrante" placeholder="Palestrante">
+            <mat-option *ngFor="let item of palestrantes" value="{{item.cod_palestrante}}">{{item.nome}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Horário inicio" type="time" [(ngModel)]="info.horarioInicio" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Horário terminio" type="time" [(ngModel)]="info.horarioTerminio" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="data_inicio" [(ngModel)]="info.data_inicio" placeholder="Data inicio">
+            <mat-datepicker-toggle matSuffix [for]="data_inicio">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #data_inicio></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="data_fim" [(ngModel)]="info.data_fim" placeholder="Data fim">
+            <mat-datepicker-toggle matSuffix [for]="data_fim">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #data_fim></mat-datepicker>
+          </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Descrição" [(ngModel)]="info.descricao" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-select [(ngModel)]="info.tipoEvento" placeholder="Tipo do evento">
+              <mat-option value="Acadêmico">Acadêmico</mat-option>
+              <mat-option value="Cursos">Cursos</mat-option>
+              <mat-option value="Extra curriculares">Extra curriculares</mat-option>
+            </mat-select>
+          </mat-form-field> -->
+</mat-card>

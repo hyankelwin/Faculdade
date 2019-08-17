@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Eventos</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="logout()">
+          <ion-icon style="color: #FFF!important" name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card (click)="list_details()">
+    <img src="https://sinsesp.com.br/site/wp-content/uploads/2018/03/meeting-2018-LOGO.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        Develop Meeting 2018
+        </ion-card-title>
+      <p>
+        Venha fazer parte e conhecer mais sobre o evento mais tecnologo da história!
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
